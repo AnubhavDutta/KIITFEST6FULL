@@ -76,7 +76,7 @@
       redirect('../../');
     }
     $acpassword=mysqli_real_escape_string($con,$acpassword);
-
+    $acpassword=md5($acpassword);
 
     if(isset($_POST['acwhatsapp'])) $acwhatsapp=$_POST['acwhatsapp'];
     else{
@@ -175,18 +175,17 @@
       
       $rollnumber=$row['idno'];
       $rollnumber2=$rollnumber;
-
+      
       for($i=0; $i<( 5-strlen($rollnumber) ); $i++){
           $rollnumber2='0'.$rollnumber2;  
       } 
       
       //$SUBMIT=mysqli_query($con,$insertQ) or die(mysqli_error($con));
       $msg="<h2><b>Successfully Registered</b></h2><br><br><h4>Name: ".$acname."</h4><h4>College: ".$accollege."</h4><h4>Code: ".$rollnumber2."</h4>";
-      echo $msg;
 
-      $_SESSION['id']=$rollnumber2;
+      $_SESSION['id']=$rollnumber;
       $_SESSION['role']=$row['Prole'];
-      echo $_SESSION['id'];
+
      // header('../../dashboard');
       redirect("../../dashboard");
 

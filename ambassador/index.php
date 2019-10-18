@@ -17,7 +17,7 @@
 <?php
 
     if(isset($_POST['acmail']) && isset($_POST['proceed']) && isset($_POST['acpw'])  ){
-        $mypw=md5($_POST['acpw']);
+        $mypw=$_POST['acpw'];
 ?>
 
     <div class="container h-100" style="padding-top: 1rem; padding-bottom: 1rem;">
@@ -42,7 +42,7 @@
 
                             </div>
                             <input type="hidden" name="acmail" value="<?php echo $_POST['acmail']; ?>">
-                            <input type="hidden" name="acpassword" value="<?php echo $mypw; ?>">
+                            <input type="hidden" name="acpassword" value="<?php echo$mypw; ?>">
                             <div class="col-md-6 col-xs-12" style="float:left; padding-top: 5px;">
                                 <div class="form-group">
                                     <label for="name">Name</label>
