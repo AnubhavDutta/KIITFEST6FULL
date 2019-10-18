@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start(); ?>
+<?php session_start();
+  include 'connectdb.php';
+  include 'redirection.php';
+  $con=openConnection();
+
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -197,132 +202,91 @@
                               </div>
                             </div>
                           </div>
-                          
+                            <!-- Leaderboard Backend -->
+                            <?php
+                              $selq="SELECT * FROM chickensoup WHERE Prole=1 ORDER BY People DESC;";
+                            
+                              $qry_result=mysqli_query($con, $selq) or die(mysqli_error($con));
+                              $first = mysqli_fetch_array($qry_result);
+
+                              $second = mysqli_fetch_array($qry_result);
+
+                              $third = mysqli_fetch_array($qry_result);
+
+                            ?>
                           <div class="section-fix">
                                 <div class="center">
                                     <div class="top3">
+
+
+                                    <?php if(mysqli_num_rows($qry_result)>0){ ?>
                                         <div class="one item">
                                         <div class="pos">
                                           1
                                         </div>
                                         <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/31.jpg&#39;)"></div>
                                         <div class="name">
-                                          Clifford James
+                                         <?php echo $first['Pname']; ?>
                                         </div>
                                         <div class="score">
-                                          6794
+                                        <?php echo $first['People']*10; ?>
                                         </div>
                                       </div>
+                                    <?php } ?>
+                                    <?php if(mysqli_num_rows($qry_result)>1){ ?>
                                       <div class="two item">
                                         <div class="pos">
                                           2
                                         </div>
                                         <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/44.jpg&#39;)"></div>
                                         <div class="name">
-                                          Edgar Soto
+                                        <?php echo $second['Pname']; ?>
                                         </div>
                                         <div class="score">
-                                          6453
+                                        <?php echo $second['People']*10; ?>
                                         </div>
-                                      </div>                                      
+                                      </div>    
+                                    <?php } ?>
+                                    <?php if(mysqli_num_rows($qry_result)>3){ ?>                                  
                                       <div class="three item">
                                         <div class="pos">
                                           3
                                         </div>
                                         <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/91.jpg&#39;)"></div>
                                         <div class="name">
-                                          Nevaeh Silva
+                                        <?php echo $third['Pname']; ?>
                                         </div>
                                         <div class="score">
-                                          6034
+                                        <?php echo $third['People']*10; ?>
                                         </div>
                                       </div>
+                                    <?php } ?>
                                     </div>
                                     <div class="list">
+                                      <?php
+                                       if(mysqli_num_rows($qry_result)>3){ 
+                                        $rank=3;
+                                         while ($crow = mysqli_fetch_array($qry_result) && $rank<11) {
+                                           $rank+=1;
+                                        
+                                      ?>
                                       <div class="item">
                                         <div class="pos">
-                                          4
+                                          <?php echo $rank; ?>
                                         </div>
                                         <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/88.jpg&#39;)"></div>
                                         <div class="name">
-                                          Clayton Watson
+                                        <?php echo $crow['Pname']; ?>
                                         </div>
                                         <div class="score">
-                                          5980
+                                        <?php echo $crow['People']*10; ?>
                                         </div>
                                       </div>
-                                      <div class="item">
-                                        <div class="pos">
-                                          5
-                                        </div>
-                                        <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/29.jpg&#39;)"></div>
-                                        <div class="name">
-                                          Debbie Lane
-                                        </div>
-                                        <div class="score">
-                                          5978
-                                        </div>
-                                      </div>
-                                      <div class="item">
-                                        <div class="pos">
-                                          6
-                                        </div>
-                                        <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/85.jpg&#39;)"></div>
-                                        <div class="name">
-                                          Gabriella Steward
-                                        </div>
-                                        <div class="score">
-                                          5845
-                                        </div>
-                                      </div>
-                                      <div class="item">
-                                        <div class="pos">
-                                          7
-                                        </div>
-                                        <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/39.jpg&#39;)"></div>
-                                        <div class="name">
-                                          Nina Perkins
-                                        </div>
-                                        <div class="score">
-                                          5799
-                                        </div>
-                                      </div>
-                                      <div class="item">
-                                        <div class="pos">
-                                          8
-                                        </div>
-                                        <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/77.jpg&#39;)"></div>
-                                        <div class="name">
-                                          Dennis Henry
-                                        </div>
-                                        <div class="score">
-                                          5756
-                                        </div>
-                                      </div>
-                                      <div class="item">
-                                        <div class="pos">
-                                          9
-                                        </div>
-                                        <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/49.jpg&#39;)"></div>
-                                        <div class="name">
-                                          Courtney Fuller
-                                        </div>
-                                        <div class="score">
-                                          5713
-                                        </div>
-                                      </div>
-                                      <div class="item">
-                                        <div class="pos">
-                                          10
-                                        </div>
-                                        <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/30.jpg&#39;)"></div>
-                                        <div class="name">
-                                          Joan Wood
-                                        </div>
-                                        <div class="score">
-                                          5674
-                                        </div>
-                                      </div>
+                                    <?php
+                                         } 
+                                        }
+                                    ?>
+                                      
                                     </div>
                                   </div>
                                   </div>

@@ -183,7 +183,7 @@
                                         <div class="list">
                                         <?php if(mysqli_num_rows($qry_result)>3){ 
                                           $rank=3;
-                                           while ($crow = mysqli_fetch_array($qry_result) ) {
+                                           while ($crow = mysqli_fetch_array($qry_result) && $rank<11) {
                                              $rank+=1;
                                              if($crow['idno']==$_SESSION['id']) $foundself=1;
                                           ?>
@@ -200,11 +200,27 @@
                                             <?php echo $crow['People']*10; ?>
                                             </div>
                                           </div>
-                                          <?php
-                                          if($foundself==0){}
+                                          <?php }
+                                            while($foundself==0){
+                                              $rank+=1;
+                                              $crow = mysqli_fetch_array($qry_result);
+                                              if($crow['idno']==$_SESSION['id']){
                                           ?>
+
+                                          <div class="item">
+                                            <div class="pos">
+                                            <?php echo $rank; ?>
+                                            </div>
+                                            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/88.jpg&#39;)"></div>
+                                            <div class="name">
+                                            <?php echo $crow['Pname']; ?>
+                                            </div>
+                                            <div class="score">
+                                            <?php echo $crow['People']*10; ?>
+                                            </div>
+                                          </div>
                                         
-                                        <?php } } ?>
+                                        <?php } } } ?>
                                         </div>
                                       </div>
                                       </div>
