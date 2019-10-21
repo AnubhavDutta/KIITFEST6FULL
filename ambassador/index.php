@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+    include '../connectdb.php';
+    $con=openConnection();
+?>
 <head>
     <title>KIIT FEST 6.0 - Complete Your Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +20,18 @@
 <?php
 
     if(isset($_POST['acmail']) && isset($_POST['proceed']) && isset($_POST['acpw'])  ){
+
         $mypw=$_POST['acpw'];
+        $email=mysqli_real_escape_string($con,$_POST['acmail']);
+
+        $selq="SELECT * FROM chickensoup WHERE Email='$email';";
+        $qry_result=mysqli_query($con, $selq) or die(mysqli_error($con));
+
+        if(mysqli_num_rows($qry_result)>0){
+            include '../redirection.php';
+            echo"<script> alert('This Email is already registered. Please try a different email address'); </script>";
+            redirect('../');
+        }
 ?>
 
     <div class="container h-100" style="padding-top: 1rem; padding-bottom: 1rem;">
@@ -29,18 +43,7 @@
                     </div>
                     <div class=" card-body">
                         <form  action="registration/" method="POST" onsubmit="return checkfullform(this);" enctype="multipart/form-data">
-                            <div>
-                                <div id="profile-container" style="text-align: center;">
-                                    <img id="profileImage" src="img/ninja.png" />
-                                </div>
-                                
-                              <!--  <input id="imageUpload" type="file" name="file-input" placeholder="Photo" required>  -->
-                                <input type="file" name="file-input" required>
-                                <span class="text-muted" style="text-align: center;font-size: 19px;">
-                                    <p>Profile Picture</p>
-                                </span>
 
-                            </div>
                             <input type="hidden" name="acmail" value="<?php echo $_POST['acmail']; ?>">
                             <input type="hidden" name="acpassword" value="<?php echo$mypw; ?>">
                             <div class="col-md-6 col-xs-12" style="float:left; padding-top: 5px;">
@@ -75,10 +78,6 @@
                                         <div class="invalid-feedback">
                                                 Please enter your college
                                             </div>
-                                </div>
-                                <div style="text-align: left;" class="mt-4" id="idDiv">
-                                        <i class="fas fa-id-card-alt fa-2x" id="idUploadIcon"><span id="id-card-text" >Upload your college ID card</span></i>
-                                        <input id="idUpload" type="file" placeholder="ID_Card"  id="file1" name="file1[]" multiple required>
                                 </div>
                                  
                                 

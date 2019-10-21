@@ -266,7 +266,8 @@
                                       <?php
                                        if(mysqli_num_rows($qry_result)>3){ 
                                         $rank=3;
-                                         while ($crow = mysqli_fetch_array($qry_result) && $rank<11) {
+                                         while ($crow = mysqli_fetch_array($qry_result)) {
+                                          if($rank==11) break;
                                            $rank+=1;
                                         
                                       ?>

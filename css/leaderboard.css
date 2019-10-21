@@ -2,11 +2,13 @@
 
 .section-fix {
 color: black;
+font-size: 16px;
 }
 .center {
 
   z-index: 10;
   font-family: 'Red Hat Display', sans-serif;
+  
 }
 
 .top3 {
@@ -35,10 +37,10 @@ color: black;
 }
 .top3 .item .pic {
   position: absolute;
-  top: -2rem;
-  left: 2.5rem;
-  width: 4rem;
-  height: 4rem;
+  top: -3rem;
+  left: 2rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
@@ -72,10 +74,15 @@ color: black;
   height: 14rem;
   padding-top: 3.5rem;
 }
+.top3 .item.three {
+  width: 10rem;
+  height: 14rem;
+  padding-top: 3.5rem;
+}
 .top3 .item.one .pic {
-  width: 5rem;
-  height: 5rem;
-  left: 2.5rem;
+  width: 6rem;
+  height: 6rem;
+  left: 2rem;
 }
 .top3 .item:hover {
   -webkit-transform: scale(1.05);
@@ -85,13 +92,14 @@ color: black;
 .list {
   padding-left: 2rem;
   margin: 0 auto;
+  max-width: 60%;
 }
 .list .item {
   position: relative;
   display: flex;
   align-items: center;
   background: white;
-  height: 3rem;
+  height: 4rem;
   border-radius: 4rem;
   margin-bottom: 2rem;
   background: #EAA786;
@@ -115,8 +123,8 @@ color: black;
   transition: opacity 200ms ease-in-out;
 }
 .list .item .pic {
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   background-size: cover;
   background-position: center;

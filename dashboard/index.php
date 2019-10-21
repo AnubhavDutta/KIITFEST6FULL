@@ -183,8 +183,9 @@
                                         <div class="list">
                                         <?php if(mysqli_num_rows($qry_result)>3){ 
                                           $rank=3;
-                                           while ($crow = mysqli_fetch_array($qry_result) && $rank<11) {
+                                           while ($crow = mysqli_fetch_array($qry_result)) {
                                              $rank+=1;
+                                             if($rank==11) break;
                                              if($crow['idno']==$_SESSION['id']) $foundself=1;
                                           ?>
                                         

@@ -8,48 +8,7 @@
     $msg="";
     $valid=1;
     
-    /*
-
-    // Get Image Dimension
-    $fileinfo = @getimagesize($_FILES["file-input"]["tmp_name"]);
-    $width = $fileinfo[0];
-    $height = $fileinfo[1];
-    
-    $allowed_image_extension = array(
-        "png",
-        "jpg",
-        "jpeg"
-    );
-    // Get image file extension
-    $file_extension = pathinfo($_FILES["file-input"]["name"], PATHINFO_EXTENSION);
-    // Validate file input to check if is not empty
-    if (! file_exists($_FILES["file-input"]["tmp_name"])) {
-        $valid=0;
-       $msg="<h4>Prodile Picture Not Found</h4>";
-    }    // Validate file input to check if is with valid extension
-    else if (! in_array($file_extension, $allowed_image_extension)) {
-     $valid=0;
-     $msg="<h4>File Not Supported</h4>";
-    }    // Validate image file size
-    else if (($_FILES["file-input"]["size"] > 1000000)) {
-     $valid=0;
-     $msg="<h4>Image Size exceeds 1 MB. Please select another image</h4>";
-    }    // Validate image file dimension
-    else if ($width < "50" || $height < "50") {
-     $valid=0;
-     $msg="<h4>Image size is too small. Please select another image</h4>";
-    } else {
-        $target = "profilepic/" .uniqid(). basename($_FILES["file-input"]["name"]);
-
-        if (move_uploaded_file($_FILES["file-input"]["tmp_name"], $target)) {
-         $msg="";
-        } else {
-             $valid=0;
-             $msg="<h4>Image Upload Failed. Please try again</h4>";
-        }
-    }
-
-    */
+   
 
     include '../../redirection.php';
 
@@ -106,39 +65,6 @@
     $acdist=mysqli_real_escape_string($con,$acdist);
 
 
-
-    $file1="";
-    if(count($_FILES['file1']['name'])>0){
-        for($i=0; $i<count($_FILES['file1']['name']); $i++) {
-              //Get the temp file path
-                $tmpFilePath = $_FILES['file1']['tmp_name'][$i];
-                //Make sure we have a filepath
-                if($tmpFilePath != ""){
-                    //save the filename
-                    $shortname = $_FILES['file1']['name'][$i];
-                    //save the url and the file
-                    $filePath = "product_images/".$_FILES['file1']['name'][$i];
-                    //Upload the file into the temp dir
-                    if(move_uploaded_file($tmpFilePath, $filePath)) {
-                        $files[] = $shortname;
-                        $file1=$filePath;
-                        //insert into db 
-                        //use $shortname for the filename
-                        //use $filePath for the relative url to the file
-    
-                    }
-                }
-        }
-    }
-
-
-    /*
-    if ($file1==""){
-        $valid=0;
-        $msg="<h4>College ID Not Provided</h4>";
-    }
-    */
-
     $selq="SELECT * FROM chickensoup WHERE Email='$acmail';";
     $qry_result=mysqli_query($con, $selq) or die(mysqli_error($con));
 
@@ -165,7 +91,7 @@
 
 
 
-      $stmt = $con->prepare("INSERT INTO chickensoup(Collegeid,Pname,mobile,whatsapp, Ayear,College, Pstate,District,Email, Ppassword,Caexperience,People,Picture,Prole) VALUES(?,?,?,?,?,?,?,?,?,?,?,0,?,1)");
+      $stmt = $con->prepare("INSERT INTO chickensoup(Pname,mobile,whatsapp, Ayear,College, Pstate,District,Email, Ppassword,Caexperience,People,Prole) VALUES(?,?,?,?,?,?,?,?,?,?,0,1)");
       $stmt->bind_param("ssssssssssss",$file1,$acname,$accontact,$acwhatsapp,$acyear,$accollege,$acstate,$acdist,$acmail,$acpassword,$acexp,$target);
       $stmt->execute();
 
