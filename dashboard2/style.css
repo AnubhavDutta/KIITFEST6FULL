@@ -1,0 +1,85 @@
+.c1
+{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: black !important;
+    color:inherit;
+}
+
+.c2
+{
+  
+    font-weight: bold;
+    color: black !important;
+}
+.h3{
+    text-align: right;
+    font-style: italic;
+    color:blue !important;
+    text-shadow: 5px 5px 2px lightskyblue !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    font-weight: bolder !important;
+    overflow: hidden;
+}
+.c3
+{
+    background-image: url(/img/addon/bg.jpg);
+    background-size : cover;
+    padding-bottom: 10px;
+}
+.hc3
+{
+    color: whitesmoke;
+    word-spacing: 5px;
+    text-shadow: -3px 3px 5px;   
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.c4
+{
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right:20px;
+}
+.bt4
+{
+    background-color: limegreen !important;
+    color: black !important;
+    font-weight: bold;
+}
+.c5
+{
+    background-image: url(/img/addon/simple-gray-abstract-background-wi-1280x720.jpg);
+    background-size:cover;
+}
+.arr
+{
+    
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-left:5px;
+    margin-right:5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.c6
+{
+    background-image: url(/img/addon/wbg.jpg);
+    background-size: cover; 
+    overflow-x: hidden !important;
+    
+}
+.shadow{
+    border: 1.2px solid black;
+    box-shadow: 10px 20px 20px #fff;
+}
+.r1{
+    width: 425px;
+    height: 100px;
+}
+.last
+{
+    background-color: black !important; 
+     font-family: 'Times New Roman', Times, serif;
+}

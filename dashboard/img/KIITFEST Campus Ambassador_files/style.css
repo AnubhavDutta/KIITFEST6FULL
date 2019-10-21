@@ -1,0 +1,193 @@
+body{
+    background-image: url("images/back.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@media screen and (min-width: 700px) {
+    .ambform{
+        width:75%; 
+    }
+}
+@media screen and (max-width: 699px) {
+    .ambform{
+        width:100%; 
+    }
+}
+
+.ambform{
+    background-color:rgba(42,61,43,0.7);
+    margin-top:20px;
+    margin-bottom:50px; 
+    padding: 30px;
+    border-radius:8px;
+}
+
+.ambspace{
+    background-color:white;
+    margin-top:20px;
+    margin-bottom:50px; 
+    padding: 30px;
+    border-radius:8px;
+}
+
+.ambform h3{
+    color: #fcba03;
+    font-family: papyrus;
+    margin: 10px; 
+}
+
+.ambform h5{
+    color: white;
+    font-family: papyrus;
+    margin: 10px; 
+}
+
+.ambform h4{
+    color: white;
+    font-family: papyrus;
+    margin: 10px; 
+}
+
+.leafy{
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.leafy:hover{
+    background-color:#337d1a !important;
+}
+input[type=text]:focus{
+    background-color: #fbfce1;
+}
+select:focus{
+    background-color: #fbfce1;
+}
+input[type=email]:focus{
+    background-color: #fbfce1;
+}
+
+
+.fallingLeaves {
+    text-align: center;
+}
+.fallingLeaves span {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+	margin: -280px 40px 54px  -34px;
+	background:url("images/leaf.png");
+    
+    -webkit-animation: fallingLeaves 10s infinite  linear;
+    -moz-animation: fallingLeaves 10s infinite  linear;
+}
+.fallingLeaves span:nth-child(5n+5) {
+
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+}
+.fallingLeaves span:nth-child(3n+2) {
+
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+}
+.fallingLeaves span:nth-child(2n+5) {
+
+    -webkit-animation-delay: 1.0s;
+    -moz-animation-delay: 1.0s;
+}
+
+.fallingLeaves span:nth-child(3n+10) {
+
+    -webkit-animation-delay: 1.3s;
+    -moz-animation-delay: 1.3s;
+}
+.fallingLeaves span:nth-child(7n+2) {
+
+    -webkit-animation-delay: 1.4s;
+    -moz-animation-delay: 1.4s;
+}
+.fallingLeaves span:nth-child(4n+5) {
+
+    -webkit-animation-delay: 1.2;
+    -moz-animation-delay: 1.2s;
+}
+.fallingLeaves span:nth-child(3n+7) {
+
+    -webkit-animation-delay: 2.0s;
+    -moz-animation-delay: 2.0s;
+}
+@-webkit-keyframes fallingLeaves {
+  0% {
+    opacity: 1;
+
+	-webkit-transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+    opacity: 1;
+
+	-webkit-transform: translate(100px, 600px) rotateZ(270deg); 
+  }
+  100% {
+    opacity: 0;
+
+	-webkit-transform: translate(150px, 800px) rotateZ(360deg);
+  }
+}
+@-moz-keyframes fallingLeaves {
+  0% {
+    opacity: 1;
+    
+	-webkit-transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+    opacity: 1;
+   
+	-webkit-transform: translate(100px, 600px) rotateZ(270deg); 
+  }
+  100% {
+    opacity: 0;
+    
+	-webkit-transform: translate(150px, 800px) rotateZ(360deg);
+  }
+}
+
+.rankcard{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    border-radius: 10px;
+    margin-top:5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.rankstats{
+    font-size: 17px;
+}
+
+.facebookbtn{
+    width:30%;
+    margin-bottom:30px;
+    border-radius: 5px;
+}
+.facebookbtn:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.navnav{
+    background-color: rgba(0,0,0,0);
+    text-align: right;
+    padding: 20px;
+}
+.navnavlink{
+    text-align: right;
+    font-size: 20px;
+    color:#ffffff;
+    font-family: WildWest Garamond;
+}
+
+.navnavlink:hover{
+    color:#d4d4d4;
+}
